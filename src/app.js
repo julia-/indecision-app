@@ -31,7 +31,8 @@ const onRemoveOptions = () => {
 const appRoot = document.getElementById('app')
 
 const renderTemplate = () => {
-  const template = <div>
+  const template = (
+    <div>
       <h1>{app.title}</h1>
       {app.subtitle && <p>{app.subtitle}</p>}
       <p>{app.options.length > 0 ? 'Here are your options' : 'No options'}</p>
@@ -49,6 +50,7 @@ const renderTemplate = () => {
         <button>Add option</button>
       </form>
     </div>
+  )
   ReactDOM.render(template, appRoot)
 }
 
