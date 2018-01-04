@@ -221,10 +221,15 @@ var AddOption = function (_React$Component2) {
       e.preventDefault();
       var option = e.target.elements.option.value.trim();
       var error = this.props.handleAddOption(option);
-      e.target.elements.option.value = '';
+
       this.setState(function () {
         return { error: error };
       });
+
+      // clear user input if there is no error
+      if (!error) {
+        e.target.elements.option.value = '';
+      }
     }
   }, {
     key: 'render',
