@@ -219,7 +219,7 @@ var AddOption = function (_React$Component5) {
       e.preventDefault();
       var option = e.target.elements.option.value.trim();
       var error = this.props.handleAddOption(option);
-
+      e.target.elements.option.value = '';
       this.setState(function () {
         return { error: error };
       });
