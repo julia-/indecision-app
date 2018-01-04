@@ -26,7 +26,7 @@ var IndecisionApp = function (_React$Component) {
         React.createElement(Header, null),
         React.createElement(Action, null),
         React.createElement(Options, null),
-        React.createElement(AddOptions, null)
+        React.createElement(AddOption, null)
       );
     }
   }]);

@@ -5,7 +5,7 @@ class IndecisionApp extends React.Component {
         <Header />
         <Action />
         <Options />
-        <AddOptions />
+        <AddOption />
       </div>
     )
   }
