@@ -105,10 +105,10 @@ class Options extends React.Component {
   }
 }
 
-class Option extends React.Component {
-  render() {
-    return <li key={this.props.index}>{this.props.optionText}</li>
-  }
+const Option = props => {
+  return (
+    <li key={props.index}>{props.optionText}</li>
+  )
 }
 
 class AddOption extends React.Component {
