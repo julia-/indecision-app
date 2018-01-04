@@ -24,7 +24,7 @@ class IndecisionApp extends React.Component {
       return 'This option already exists'
     }
 
-    this.setState((prevState) => {
+    this.setState(prevState => {
       return {
         options: prevState.options.concat(option)
       }
@@ -45,10 +45,7 @@ class IndecisionApp extends React.Component {
 
     return (
       <div>
-        <Header
-          title={title}
-          subtitle={subtitle}
-        />
+        <Header title={title} subtitle={subtitle} />
         <Action
           hasOptions={this.state.options.length > 0}
           handlePick={this.handlePick}
@@ -57,9 +54,7 @@ class IndecisionApp extends React.Component {
           options={this.state.options}
           handleDeleteOptions={this.handleDeleteOptions}
         />
-        <AddOption
-          handleAddOption={this.handleAddOption}
-        />
+        <AddOption handleAddOption={this.handleAddOption} />
       </div>
     )
   }
@@ -77,10 +72,7 @@ const Header = props => {
 const Action = props => {
   return (
     <div>
-      <button
-        onClick={props.handlePick}
-        disabled={!props.hasOptions}
-      >
+      <button onClick={props.handlePick} disabled={!props.hasOptions}>
         What should I do?
       </button>
     </div>
@@ -102,9 +94,7 @@ const Options = props => {
 }
 
 const Option = props => {
-  return (
-    <li key={props.index}>{props.optionText}</li>
-  )
+  return <li key={props.index}>{props.optionText}</li>
 }
 
 class AddOption extends React.Component {
@@ -129,7 +119,7 @@ class AddOption extends React.Component {
   render() {
     return (
       <div>
-        {this.state.error && <p>{this.state.error}</p> }
+        {this.state.error && <p>{this.state.error}</p>}
         <form onSubmit={this.handleAddOption}>
           <input type="text" name="option" />
           <button>Add option</button>

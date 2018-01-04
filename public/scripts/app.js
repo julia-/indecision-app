@@ -67,10 +67,7 @@ var IndecisionApp = function (_React$Component) {
       return React.createElement(
         'div',
         null,
-        React.createElement(Header, {
-          title: title,
-          subtitle: subtitle
-        }),
+        React.createElement(Header, { title: title, subtitle: subtitle }),
         React.createElement(Action, {
           hasOptions: this.state.options.length > 0,
           handlePick: this.handlePick
@@ -79,9 +76,7 @@ var IndecisionApp = function (_React$Component) {
           options: this.state.options,
           handleDeleteOptions: this.handleDeleteOptions
         }),
-        React.createElement(AddOption, {
-          handleAddOption: this.handleAddOption
-        })
+        React.createElement(AddOption, { handleAddOption: this.handleAddOption })
       );
     }
   }]);
@@ -112,10 +107,7 @@ var Action = function Action(props) {
     null,
     React.createElement(
       'button',
-      {
-        onClick: props.handlePick,
-        disabled: !props.hasOptions
-      },
+      { onClick: props.handlePick, disabled: !props.hasOptions },
       'What should I do?'
     )
   );
