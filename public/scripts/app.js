@@ -160,23 +160,35 @@ var Options = function Options(props) {
     React.createElement(
       'h2',
       null,
-      'Here are your options'
+      'Options'
     ),
-    React.createElement(
-      'button',
-      { onClick: props.handleDeleteAllOptions },
-      'Remove options'
-    ),
-    React.createElement(
-      'ol',
+    props.options.length > 0 ? React.createElement(
+      'div',
       null,
-      props.options.map(function (option, index) {
-        return React.createElement(Option, {
-          key: index,
-          optionText: option,
-          handleDeleteOption: props.handleDeleteOption
-        });
-      })
+      React.createElement(
+        'button',
+        { onClick: props.handleDeleteAllOptions },
+        'Remove options'
+      ),
+      React.createElement(
+        'div',
+        null,
+        React.createElement(
+          'ol',
+          null,
+          props.options.map(function (option, index) {
+            return React.createElement(Option, {
+              key: index,
+              optionText: option,
+              handleDeleteOption: props.handleDeleteOption
+            });
+          })
+        )
+      )
+    ) : React.createElement(
+      'p',
+      null,
+      'No options added. Add an option!'
     )
   );
 };
