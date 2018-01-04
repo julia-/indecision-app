@@ -3,7 +3,8 @@ class IndecisionApp extends React.Component {
     super(props)
     this.handlePick = this.handlePick.bind(this)
     this.handleAddOption = this.handleAddOption.bind(this)
-    this.handleDeleteOptions = this.handleDeleteOptions.bind(this)
+    this.handleDeleteOption = this.handleDeleteOption.bind(this)
+    this.handleDeleteAllOptions = this.handleDeleteAllOptions.bind(this)
 
     this.state = {
       options: props.options
@@ -27,7 +28,13 @@ class IndecisionApp extends React.Component {
     this.setState(prevState => ({ options: prevState.options.concat(option) }))
   }
 
-  handleDeleteOptions() {
+  handleDeleteOption(optionToRemove) {
+    this.setState(prevState => ({
+      options: prevState.options.filter(option => optionToRemove !== option)
+    }))
+  }
+
+  handleDeleteAllOptions() {
     this.setState(() => ({ options: [] }))
   }
 
@@ -43,7 +50,8 @@ class IndecisionApp extends React.Component {
         />
         <Options
           options={this.state.options}
-          handleDeleteOptions={this.handleDeleteOptions}
+          handleDeleteOption={this.handleDeleteOption}
+          handleDeleteAllOptions={this.handleDeleteAllOptions}
         />
         <AddOption handleAddOption={this.handleAddOption} />
       </div>
@@ -82,10 +90,14 @@ const Options = props => {
   return (
     <div>
       <h2>Here are your options</h2>
-      <button onClick={props.handleDeleteOptions}>Remove options</button>
+      <button onClick={props.handleDeleteAllOptions}>Remove options</button>
       <ol>
         {props.options.map((option, index) => (
-          <Option key={index} optionText={option} />
+          <Option
+            key={index}
+            optionText={option}
+            handleDeleteOption={props.handleDeleteOption}
+          />
         ))}
       </ol>
     </div>
@@ -93,7 +105,14 @@ const Options = props => {
 }
 
 const Option = props => {
-  return <li key={props.index}>{props.optionText}</li>
+  return (
+    <div>
+      <li key={props.index}>{props.optionText}</li>
+      <button onClick={e => props.handleDeleteOption(props.optionText)}>
+        Remove
+      </button>
+    </div>
+  )
 }
 
 class AddOption extends React.Component {
