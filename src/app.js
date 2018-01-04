@@ -89,20 +89,18 @@ const Action = props => {
   )
 }
 
-class Options extends React.Component {
-  render() {
-    return (
-      <div>
-        <h2>Here are your options</h2>
-        <button onClick={this.props.handleDeleteOptions}>Remove options</button>
-        <ol>
-          {this.props.options.map((option, index) => (
-            <Option key={index} optionText={option} />
-          ))}
-        </ol>
-      </div>
-    )
-  }
+const Options = props => {
+  return (
+    <div>
+      <h2>Here are your options</h2>
+      <button onClick={props.handleDeleteOptions}>Remove options</button>
+      <ol>
+        {props.options.map((option, index) => (
+          <Option key={index} optionText={option} />
+        ))}
+      </ol>
+    </div>
+  )
 }
 
 const Option = props => {
