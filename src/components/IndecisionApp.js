@@ -6,16 +6,8 @@ import Options from './Options'
 import AddOption from './AddOption'
 
 class IndecisionApp extends React.Component {
-  constructor(props) {
-    super(props)
-    this.handlePick = this.handlePick.bind(this)
-    this.handleAddOption = this.handleAddOption.bind(this)
-    this.handleDeleteOption = this.handleDeleteOption.bind(this)
-    this.handleDeleteAllOptions = this.handleDeleteAllOptions.bind(this)
-
-    this.state = {
-      options: []
-    }
+  state = {
+    options: []
   }
 
   componentDidMount() {
@@ -38,14 +30,14 @@ class IndecisionApp extends React.Component {
     }
   }
 
-  handlePick() {
+  handlePick = () => {
     const options = this.state.options
     const randomNumber = Math.floor(Math.random() * options.length)
     const option = options[randomNumber]
     alert(option)
   }
 
-  handleAddOption(option) {
+  handleAddOption = (option) => {
     if (!option) {
       return 'Enter a valid option'
     } else if (this.state.options.indexOf(option) > -1) {
@@ -55,13 +47,13 @@ class IndecisionApp extends React.Component {
     this.setState(prevState => ({ options: prevState.options.concat(option) }))
   }
 
-  handleDeleteOption(optionToRemove) {
+  handleDeleteOption = (optionToRemove) => {
     this.setState(prevState => ({
       options: prevState.options.filter(option => optionToRemove !== option)
     }))
   }
 
-  handleDeleteAllOptions() {
+  handleDeleteAllOptions = () => {
     this.setState(() => ({ options: [] }))
   }
 
