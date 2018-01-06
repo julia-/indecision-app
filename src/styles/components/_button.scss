@@ -1,7 +1,7 @@
 .big-button {
   background: $purple;
   border: none;
-  border-bottom: .6rem solid darken($purple, 10%);
+  border-bottom: .6rem solid darken($purple, $amount);
   color: #ffffff;
   font-weight: bold;
   font-size: $l-size;
@@ -17,7 +17,7 @@
 .button {
   background: $purple;
   border: none;
-  border-bottom: .3rem solid darken($purple, 10%);
+  border-bottom: .3rem solid darken($purple, $amount);
   color: #ffffff;
   font-weight: 500;
   padding: $s-size;
