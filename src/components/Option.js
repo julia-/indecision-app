@@ -3,7 +3,7 @@ import React from 'react'
 const Option = props => (
   <div>
     <li key={props.index}>{props.optionText}</li>
-    <button onClick={e => props.handleDeleteOption(props.optionText)}>
+    <button onClick={() => props.handleDeleteOption(props.optionText)}>
       Remove
     </button>
   </div>
